@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>timg</title>
+    <style>
+        button {
+            clear: both;
+            display: block;
+        }
+        img{
+            margin: 5px;
+        }
+        button{
+            margin-top: 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div>
+   <img src="./image/eg_tulip.jpg" />
+   <img src="./image/timg_1.jpg" />
+   <img src="./image/timg_2.jpg" />
+   <img src="./image/timg_3.jpg" />
+
+   <img src="./image/timg_1.jpg" />
+   <img src="./image/timg_2.jpg" />
+   <img src="./image/timg_3.jpg" />
+
+   <img src="./image/timg_1.jpg" />
+   <img src="./image/timg_2.jpg" />
+   <img src="./image/timg_3.jpg" />
+</div>
+<button id="button">缩略图</button>
+
+<script type="text/javascript">
+  
+    var img = document.querySelectorAll("img");
+  
+    document.querySelector("button").addEventListener("click", function() {
+
+    for (var len = 0; len < img.length; len++) {
+        scale(img[len], 50, 80);
+    }
+
+    }, false);
+
+   function scale(img, w, h) {
+            var ow = img.width,
+                oh = img.height;
+
+            if (ow >= oh) {
+                img.width = w * ow / oh;
+                img.height = h;
+                img.style.marginLeft =  10 + 'px';
+            } else {
+                img.width = w;
+                img.height = h * oh / ow;
+                img.style.marginTop =  10 + 'px';
+            }
+        }
+
+</script>
+</body>
+</html>
